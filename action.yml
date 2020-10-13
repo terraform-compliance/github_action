@@ -36,7 +36,7 @@ runs:
     - run: ./install.sh "${{ inputs.version }}"
       shell: bash
     - id: run
-      run: ./run "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
+      run: ./run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
       shell: bash
 
 branding:
