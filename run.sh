@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PARAMETERS="terraform-compliance "
+PARAMETERS="/home/runner/.local/bin/terraform-compliance "
 
 if [[ -n $1 ]]; then
     PARAMETERS+=" -p \"$1\""
