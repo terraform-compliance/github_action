@@ -35,6 +35,8 @@ runs:
   steps:
     - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}"
       shell: bash
+    - run: pwd && ls -al && ls -al /home/runner/work/cc-onboarding/cc-onboarding/github
+      shell: bash
     - id: run
       run: ${{ github.action_path }}/run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
       shell: bash
