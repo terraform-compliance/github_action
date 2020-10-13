@@ -7,6 +7,6 @@ if [[ -n $1 ]]; then
     v=$1
 fi
 
-sudo apt-get install -y python3-setuptools
+sudo apt-get install -y python3-setuptools python3-wheel
 echo "Installing terraform-compliance$VERSION version $v"
-pip3 install terraform-compliance$VERSION
+pip3 install wheel terraform-compliance$VERSION
