@@ -7,5 +7,5 @@ if [[ -n $1 ]]; then
     v=$1
 fi
 
-echo "Installing terraform-compliance version $v"
-pip3 install -q terraform-compliance$VERSION
+echo "Installing terraform-compliance$VERSION version $v"
+pip3 install terraform-compliance$VERSION
