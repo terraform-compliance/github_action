@@ -3,7 +3,7 @@
 PARAMETERS="/home/runner/.local/bin/terraform-compliance "
 
 if [[ -n $1 ]]; then
-    PARAMETERS+=" -p \"$1\""
+    PARAMETERS+=" -p \"$GITHUB_WORKSPACE/$1\""
 fi
 
 if [[ -n $2 ]]; then
