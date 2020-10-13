@@ -8,4 +8,4 @@ if [[ -n $1 ]]; then
 fi
 
 echo "Installing terraform-compliance version $v"
-pip install --no-color -q terraform-compliance$VERSION
+pip install -q terraform-compliance$VERSION
