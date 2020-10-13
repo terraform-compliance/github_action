@@ -37,6 +37,7 @@ runs:
       shell: bash
     - id: run
       run: ./run "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
+      shell: bash
 
 branding:
   color: black
