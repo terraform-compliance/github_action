@@ -118,12 +118,3 @@ jobs:
 | identity | | < NOT IMPLEMENTED YET >
 | version | | Specific `terraform-compliance` version that you want to use within the action | | 
 
-# Q&A
-
-Q: I need to download my scenarios from an external git repository ? What should I do ?
-A: ...
-
----
-
-Q: Where can I have more information about `terraform-compliance` and its tests ?
-A: https://terraform-compliance.com
