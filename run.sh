@@ -9,7 +9,7 @@ if [[ -n $1 ]]; then
 fi
 
 if [[ -n $2 ]]; then
-    PARAMETERS+=" -f \"git:$2\""
+    PARAMETERS+=" -f git:$2"
 fi
 
 if [[ -n $3 ]]; then
@@ -31,6 +31,6 @@ fi
 echo "Total number of lines in the plan (before): $(cat $PLAN_FILE | wc -l)"
 cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
 echo "Total number of lines in the plan (after): $(cat $PLAN_FILE | wc -l)"
-echo "Parameters: $PARAMETERS"
 
+echo "Running: $PARAMETERS"
 $PARAMETERS
