@@ -28,7 +28,9 @@ if [[ -n $6 ]]; then
     PARAMETERS+=" -i \"$6\""
 fi
 
+echo "Total number of lines in the plan (before): $(cat $PLAN_FILE | wc -l)"
 cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
+echo "Total number of lines in the plan (after): $(cat $PLAN_FILE | wc -l)"
 echo "Parameters: $PARAMETERS"
 
 $PARAMETERS
