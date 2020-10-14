@@ -1,6 +1,6 @@
 # terraform-compliance GitHub Action
 
-<img src='https://avatars3.githubusercontent.com/u/61387890' align=right height=100 valign=top><h1 align="center">terraform-compliance
+<img src='https://avatars3.githubusercontent.com/u/61387890' align=right height=100 valign=top><h1 align="center">terraform-compliance</h1>
 
 <div align="center">
   <!-- Website -->
