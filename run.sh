@@ -3,7 +3,9 @@
 PARAMETERS="/home/runner/.local/bin/terraform-compliance "
 
 if [[ -n $1 ]]; then
-    PARAMETERS+=" -p \"$GITHUB_WORKSPACE/$1\""
+    PLAN_FILE="$GITHUB_WORKSPACE/$1"
+    PARAMETERS+=" -p \"$PLAN_FILE\""
+    
 fi
 
 if [[ -n $2 ]]; then
@@ -26,6 +28,7 @@ if [[ -n $6 ]]; then
     PARAMETERS+=" -i \"$6\""
 fi
 
+cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
 echo "Parameters: $PARAMETERS"
 
 $PARAMETERS
