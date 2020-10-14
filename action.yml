@@ -25,6 +25,12 @@ inputs:
   version:
     description: "Speficic terraform-compliance version to be used."
     required: false
+  terraform_version:
+    description: "Terraform version that will be installed within the build image."
+    required: false
+  install_terraform:
+    description: "In case you want to download the latest version. You can just use this parameter."
+    required: false
 
 outputs:
   result:
@@ -33,7 +39,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}"
+    - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}" "${{ inputs.install_terraform }}" "${{ inputs.terraform_version }}"
       shell: bash
     - id: run
       run: ${{ github.action_path }}/run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
