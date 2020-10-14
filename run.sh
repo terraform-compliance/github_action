@@ -29,8 +29,14 @@ if [[ -n $6 ]]; then
 fi
 
 echo "Total number of lines in the plan (before): $(cat $PLAN_FILE | wc -l)"
+echo " ====================== PLAN FILE (before) ========================= "
+cat $PLAN_FILE
+echo " ====================== PLAN FILE (before) ========================= "
 cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
 echo "Total number of lines in the plan (after): $(cat $PLAN_FILE | wc -l)"
+echo " ====================== PLAN FILE (after) ========================= "
+cat $PLAN_FILE
+echo " ====================== PLAN FILE (after) ========================= "
 
 echo "Running: $PARAMETERS"
 $PARAMETERS
