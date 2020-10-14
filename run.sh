@@ -27,8 +27,6 @@ if [[ -n $6 ]]; then
     PARAMETERS+=" -i \"$6\""
 fi
 
-ls -al "$PLAN_FILE"
-file "$PLAN_FILE"
 echo "Running: $PARAMETERS"
 
 $PARAMETERS
