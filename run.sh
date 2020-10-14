@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PARAMETERS="/home/runner/.local/bin/terraform-compliance "
+PARAMETERS="/home/runner/.local/bin/terraform-compliance"
 
 if [[ -n $1 ]]; then
     PLAN_FILE="$GITHUB_WORKSPACE/$1"
@@ -29,9 +29,9 @@ fi
 
 echo "Total number of lines in the plan (before): $(cat $PLAN_FILE | wc -l)"
 echo " ====================== PLAN FILE (before) ========================= "
-cat $PLAN_FILE
+cat
 echo " ====================== PLAN FILE (before) ========================= "
-cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
+cat "$PLAN_FILE" | tail -1 > "$PLAN_FILE.tmp" && mv "$PLAN_FILE.tmp" "$PLAN_FILE"
 echo "Total number of lines in the plan (after): $(cat $PLAN_FILE | wc -l)"
 echo " ====================== PLAN FILE (after) ========================= "
 cat $PLAN_FILE
