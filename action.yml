@@ -33,10 +33,10 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}"
+    - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}" "${{ inputs.install_terraform }}" "${{ inputs.terraform_version }}"
       shell: bash
     - id: run
-      run: ${{ github.action_path }}/run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}"
+      run: ${{ github.action_path }}/run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}" "${{ inputs.execute }}"
       shell: bash
 
 branding:

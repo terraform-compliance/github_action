@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-PARAMETERS="/home/runner/.local/bin/terraform-compliance "
+PARAMETERS="/home/runner/.local/bin/terraform-compliance"
 
 if [[ -n $1 ]]; then
     PLAN_FILE="$GITHUB_WORKSPACE/$1"
-    PARAMETERS+=" -p \"$PLAN_FILE\""
-    
+    PARAMETERS+=" -p $PLAN_FILE"
 fi
 
 if [[ -n $2 ]]; then
-    PARAMETERS+=" -f \"git:$2\""
+    PARAMETERS+=" -f git:$2"
 fi
 
 if [[ -n $3 ]]; then
@@ -28,7 +27,6 @@ if [[ -n $6 ]]; then
     PARAMETERS+=" -i \"$6\""
 fi
 
-cat "$PLAN_FILE" | tail -1 | tee "$PLAN_FILE"
-echo "Parameters: $PARAMETERS"
+echo "Running: $PARAMETERS"
 
 $PARAMETERS

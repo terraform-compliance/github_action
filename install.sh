@@ -7,6 +7,9 @@ if [[ -n $1 ]]; then
     v=$1
 fi
 
+# Required for installing terraform-compliance...
 sudo apt-get install -y python3-setuptools python3-wheel
+
+# Install terraform-compliance
 echo "Installing terraform-compliance$VERSION version $v"
 pip3 install -q wheel terraform-compliance$VERSION
