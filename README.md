@@ -74,7 +74,7 @@ jobs:
           terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
       
       - name: terraform-compliance
-        uses: terraform-compliance/github_action@master
+        uses: terraform-compliance/github_action@0.1.6 # or use the latest version.
         with:
           plan: plan.out.json
           features: ssh://git@github.com/terraform-compliance/user-friendly-features.git
