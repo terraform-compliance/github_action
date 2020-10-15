@@ -44,7 +44,7 @@ You can use this action in order to run [terraform-compliance](https://terraform
 # How to use this action ?
 
 1. [Enable and Configure](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow) GitHub actions within your respository.
-2. Use `terraform-compliance/github-action@master`
+2. Use `terraform-compliance/github-action@main`
 3. Supply `plan` and `features` required parameters 
 4. Supply optional other parameters
 
@@ -74,7 +74,7 @@ jobs:
           terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
       
       - name: terraform-compliance
-        uses: terraform-compliance/github_action@0.1.6 # or use the latest version.
+        uses: terraform-compliance/github_action@main # or use the latest version.
         with:
           plan: plan.out.json
           features: ssh://git@github.com/terraform-compliance/user-friendly-features.git
