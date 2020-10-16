@@ -71,16 +71,45 @@ jobs:
       - name: terraform plan
         id: plan
         run: |
-          terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
+          terraform init && terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
       
       - name: terraform-compliance
-        uses: terraform-compliance/github_action@main # or use the latest version.
+        uses: terraform-compliance/github_action@main
         with:
           plan: plan.out.json
           features: ssh://git@github.com/terraform-compliance/user-friendly-features.git
 ```
 
-.. or if you want to publish the plan output to the related Pull Request, you can also use this action provided by GitHub as well ;
+.. or if you want to install `terraform-compliance` in the beginning of the steps and re-use it every time via `run` directive ;
+
+```yml
+jobs:
+    terraform:
+        name: terraform CI
+        runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+      - uses: terraform-compliance/github_action@main
+
+      - name: terraform plan
+        id: plan
+        run: |
+          terraform init && terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
+      
+      - name: terraform-compliance
+        id: terraform-compliance from remote repo
+        run: |
+          terraform-compliance -p /path/to/plan.out.json -f git:ssh://git@github.com/terraform-compliance/user-friendly-features.git
+
+      - name: terraform-compliance
+        id: terraform-compliance from local
+        run: |
+          terraform-compliance -p /path/to/plan.out.json -f /path/to/local
+```
+
+Additionaly, in case you want to publish the plan output to the related Pull Request, you can also use this action provided by GitHub as well ;
 
 ```yml
       - uses: actions/github-script@0.9.0
@@ -115,6 +144,12 @@ jobs:
 | quit-early | | Action will fail immediately on the first failure | false | |
 | no-failure | | Action will not fail even the tests fail | false | | 
 | silent | | Output of the tests will be substantially silenced | false | | 
-| identity | | < NOT IMPLEMENTED YET >
 | version | | Specific `terraform-compliance` version that you want to use within the action | | 
+
+# What if my feature files are within a private repository ?
+
+Have a look on [setup-git-credentials](https://github.com/marketplace/actions/setup-git-credentials) action for doing it in a better way than
+providing SSH private keys. 
+
+This action will also solve your problems while downloading modules from remote private repositories on `terraform init`
 
