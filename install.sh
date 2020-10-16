@@ -14,4 +14,4 @@ sudo apt-get install -y -qq python3-setuptools python3-wheel
 echo "Installing terraform-compliance$VERSION version $v"
 pip3 install -q wheel terraform-compliance$VERSION
 
-ln -s /home/runner/.local/bin/terraform-compliance /usr/local/bin
+sudo ln -s /home/runner/.local/bin/terraform-compliance /usr/local/bin
