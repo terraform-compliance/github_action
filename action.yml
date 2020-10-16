@@ -6,10 +6,10 @@ author: "Emre Erkunt <emre.erkunt@gmail.com>"
 inputs:
   plan:
     description: "The output of terraform plan (in json)"
-    required: true
+    required: false
   features:
     description: "The URL that is used for terraform-compliance features (without 'git:' prefix)"
-    required: true
+    required: false
   quit-early:
     description: "Stops executing any more steps in a scenario on first failure."
     required: false

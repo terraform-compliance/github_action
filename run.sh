@@ -27,6 +27,11 @@ if [[ -n $6 ]]; then
     PARAMETERS+=" -i \"$6\""
 fi
 
-echo "Running: $PARAMETERS"
-
-$PARAMETERS
+if [[ -n $1 && -n $2 ]]; then
+    echo "Running: $PARAMETERS"
+    
+    $PARAMETERS
+    
+else
+    echo "terraform-compliance is ready to run."
+fi
