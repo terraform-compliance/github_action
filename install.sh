@@ -7,6 +7,11 @@ if [[ -n $1 ]]; then
     v=$1
 fi
 
+INSTALLED_PATH="/home/runner/.local/bin/terraform-compliance"
+if [[ -n $2 ]]; then
+    INSTALLED_PATH=$2
+fi
+
 # Required for installing terraform-compliance...
 echo "Installing required packages for terraform-compliance"
 sudo apt-get install -y -qq python3-setuptools python3-wheel > /dev/null
@@ -15,4 +20,4 @@ sudo apt-get install -y -qq python3-setuptools python3-wheel > /dev/null
 echo "Installing terraform-compliance$VERSION version $v"
 pip3 install -q wheel terraform-compliance$VERSION
 
-sudo ln -s /home/runner/.local/bin/terraform-compliance /usr/local/bin
+sudo ln -s "$INSTALLED_PATH" /usr/local/bin
