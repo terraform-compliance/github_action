@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PARAMETERS="/home/runner/.local/bin/terraform-compliance"
+PARAMETERS="/usr/local/bin/terraform-compliance"
 
 if [[ -n $1 ]]; then
     PLAN_FILE="$GITHUB_WORKSPACE/$1"

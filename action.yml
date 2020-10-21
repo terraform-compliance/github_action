@@ -25,6 +25,9 @@ inputs:
   version:
     description: "Speficic terraform-compliance version to be used."
     required: false
+  installed_path:
+    description: "In case you are running a custom runner, this is the path where terraform-compliance executable is installed."
+    required: false
 
 outputs:
   result:
@@ -33,7 +36,8 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/install.sh "${{ inputs.version }}" "${{ inputs.install_terraform }}" "${{ inputs.terraform_version }}"
+    - id: install
+      run: ${{ github.action_path }}/install.sh "${{ inputs.version }}" "${{ inputs.installed_path }}"
       shell: bash
     - id: run
       run: ${{ github.action_path }}/run.sh "${{ inputs.plan }}" "${{ inputs.features }}" "${{ inputs.quit-early }}" "${{ inputs.no-failure}}" "${{ inputs.silent }}" "${{ inputs.identity }}" "${{ inputs.execute }}"
