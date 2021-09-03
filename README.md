@@ -39,7 +39,7 @@
 - __segregation of duty:__ you can keep your tests in a different repository where a separate team is responsible. 
 - __why ?:__ why not ?
 
-You can use this action in order to run [terraform-compliance](https://terraform-compliance.com) in your GitHub Actins pipeline. For more information about the tool itself, you can have a look on https://terraform-compliance.com
+You can use this action in order to run [terraform-compliance](https://terraform-compliance.com) in your GitHub Actions pipeline. For more information about the tool itself, you can have a look on https://terraform-compliance.com
 
 # How to use this action ?
 
