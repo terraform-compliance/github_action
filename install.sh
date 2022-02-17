@@ -14,7 +14,7 @@ fi
 
 # Required for installing terraform-compliance...
 echo "Installing required packages for terraform-compliance"
-sudo apt-get install -y -qq python3-setuptools python3-wheel > /dev/null
+sudo apt-get install -y -qq python3-setuptools python3-wheel libxml2-dev libxslt-dev > /dev/null
 
 # Install terraform-compliance
 echo "Installing terraform-compliance$VERSION version $v"
