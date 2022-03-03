@@ -17,8 +17,8 @@ echo "Installing required packages for terraform-compliance"
 sudo apt-get install -y -qq python3-setuptools python3-wheel libxml2-dev libxslt-dev > /dev/null
 
 # Install terraform-compliance
-echo "Installing terraform-compliance$VERSION version $v"
-pip3 install -q wheel terraform-compliance[faster_parsing]$VERSION
+echo "Installing terraform-compliance[faster_parsing]$VERSION version $v"
+pip3 install "terraform-compliance[faster_parsing]"$VERSION
 
 
 if [ ! -f /usr/local/bin/terraform-compliance ]; then
